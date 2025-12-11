@@ -1,0 +1,51 @@
+# version: '3.9'
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: rag_postgres
+    environment:
+      POSTGRES_USER: rag_user
+      POSTGRES_PASSWORD: rag_password
+      POSTGRES_DB: rag_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - pgdata:/var/lib/postgresql/data
+    
+  redis:
+    image: redis:7
+    container_name: rag_redis
+    ports:
+    - "6379:6379"
+
+  backend:
+    build: ./backend
+    container_name: rag_backend
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/app:/app/app
+      - ./workspace:/workspace
+
+  worker:
+    build: ./backend
+    container_name: rag_worker
+    command: ["dramatiq", "app.ingestion.ingest_tasks"]
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - .env
+    volumes:
+      - ./backend/app:/app/app
+      - ./workspace:/workspace
+
+volumes:
+  pgdata:

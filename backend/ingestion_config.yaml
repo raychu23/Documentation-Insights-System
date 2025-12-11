@@ -1,0 +1,21 @@
+ingestion:
+  allowed_extensions:
+    - ".py"
+    - ".md"
+    - ".txt"
+    - ".js"
+    - ".ts"
+
+  chunk:
+    max_chars: 1200
+    overlap: 200
+
+  embedding:
+    model: "sentence-transformers/all-MiniLM-L6-v2"
+
+  repos:
+    - name: vscode
+      url: "https://github.com/microsoft/vscode.git"
+      auto_update: false
+      branch: "main"
+      path: "/workspace/repos/vscode"
