@@ -157,7 +157,7 @@ POST /search
 
 ---
 
-## 🧪 Example Interaction
+## Example Interaction
 
 Input Query:
 How does FastAPI generate OpenAPI schemas?
