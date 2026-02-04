@@ -102,7 +102,6 @@ This launches:
 - Ingestion worker
 
 API available at:
-
 http://localhost:8000  
 
 ---
@@ -114,7 +113,6 @@ npm install
 npm run dev  
 
 Frontend runs at:
-
 http://localhost:5173  
 
 ---
