@@ -16,7 +16,6 @@ The project focuses on retrieval-augmented generation (RAG) to overcome limitati
 - Usage  
 - Technologies Used  
 - Limitations & Future Work  
-- Contributing  
 
 ---
 
