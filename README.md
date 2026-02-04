@@ -1,4 +1,4 @@
-# 📚 Documentation Insights System (RAG-based)
+# Documentation Insights System (RAG-based)
 
 Documentation Insights System is a **knowledge-base and information retrieval tool** designed to simulate internal enterprise software used by engineering teams.
 
