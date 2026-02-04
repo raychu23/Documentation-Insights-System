@@ -206,4 +206,3 @@ Planned extensions:
 - Scheduled insights generation
 - Improved ranking and summarization
 
----
